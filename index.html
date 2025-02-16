@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="apple-touch-icon" sizes="180x180" href="./favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="./favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./favicon/favicon-16x16.png">
+    <link rel="manifest" href="./favicon/site.webmanifest">
+    <link rel="stylesheet" href="css/style.min.css">
+    <title>star3d</title>
+</head>
+
+<body>
+    <div class="main-bg">
+        <img class="main-bg__img" src="./images/main-bg-decor.png" alt="decorative grid background">
+    </div>
+    <header class="header">
+        <div class="container">
+            <div class="header__inner">
+                <a class="logo" href="/">
+                    <img class="logo__img" src="./images/logo.svg" alt="star3d logo">
+                    <img class="logo__decor logo__decor--pink" src="./images/logo-pink-star.svg"
+                        alt="star3d logo decor pink star">
+                    <img class="logo__decor logo__decor--cyan" src="./images/logo-cyan-star.svg"
+                        alt="star3d logo decor cyan star">
+
+                </a>
+                <nav class="header__nav">
+                    <ul class="header__list">
+                        <li class="header__list-item">
+                            <a class="header__list-link" href="#beats">Beats</a>
+                        </li>
+                        <li class="header__list-item">
+                            <a class="header__list-link" href="#about">About</a>
+                        </li>
+                        <li class="header__list-item">
+                            <a class="header__list-link" href="#contact">Contact</a>
+                        </li>
+                    </ul>
+                </nav>
+                <div class="header__decor">
+                    <div class="header__decor-item">
+                        <img class="header__decor-img" src="./images/header-decor-1.svg" alt="decor item">
+                    </div>
+                    <div class="header__decor-item">
+                        <img class="header__decor-img" src="./images/header-decor-2.svg" alt="decor item">
+                    </div>
+                    <div class="header__decor-item">
+                        <img class="header__decor-img" src="./images/header-decor-3.svg" alt="decor item">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <main class="main">
+        <div class="container">
+            <section class="section beat">
+                <div class="section-wrapper">
+                    <div class="beat__inner">
+                        <div class="beat__info">
+                            <div class="beat__info-cover">
+                                <img class="beat__info-cover-img" src="" alt="beat cover">
+                                <button class="beat__info-play" id="beat-play-btn">
+                                    <svg class="beat__info-pause-icon" id="pause-icon"
+                                        xmlns="http://www.w3.org/2000/svg" width="8" height="16" viewBox="0 0 8 16"
+                                        fill="none">
+                                        <path d="M0.5 1L0.499999 15" stroke="#FF00C8" stroke-linecap="round" />
+                                        <path d="M7.5 1L7.5 15" stroke="#FF00C8" stroke-linecap="round" />
+                                    </svg>
+                                    <svg class="beat__info-play-icon" id="play-icon" xmlns="http://www.w3.org/2000/svg"
+                                        width="16" height="20" viewBox="0 0 16 20" fill="none">
+                                        <path
+                                            d="M14.5881 8.84288C15.2786 9.33353 15.2786 10.3588 14.5881 10.8494L5.94368 16.992C5.12877 17.5711 4 16.9884 4 15.9888L4 3.70356C4 2.70386 5.12877 2.12122 5.94368 2.70028L14.5881 8.84288Z"
+                                            fill="#FF00C8" />
+                                    </svg>
+                                </button>
+                            </div>
+                            <div class="beat__info-left">
+                                <h1 class="beat__info-title"></h1>
+                                <p class="beat__info-bpm"></p>
+                                <div class="beat__info-buttons">
+                                    <a class="primary-btn" id="beat-download-btn" href="" target='_blank'>DOWNLOAD</a>
+                                    <button class="primary-btn" id="beat-share-btn">SHARE</button>
+                                </div>
+                            </div>
+                            <div class="beat__info-right">
+                                <ul class="genres" id="beat-info-genres">
+
+                                </ul>
+                                <p class="beat__info-time" id="beat-info-time">00:00</p>
+                            </div>
+                            <div class="beat__info-big-star stars-animation">
+                                <img class="beat__info-big-star-img" src="./images/beat-big-star-decor.svg"
+                                    alt="beat big star decor">
+                            </div>
+                            <div class="beat__info-stars stars-animation">
+                                <img class="beat__info-stars-img" src="./images/beat-stars-decor.svg"
+                                    alt="beat stars decor">
+                            </div>
+                        </div>
+                        <div class="beat__waveform" id='beat-waveform'></div>
+                    </div>
+                </div>
+            </section>
+            <section class="section beats" id="beats">
+                <div class="section-wrapper">
+                    <ul class="beats__header">
+                        <li class="beats__header-item beats__header-title">title</li>
+                        <li class="beats__header-item beats__header-time">time</li>
+                        <li class="beats__header-item beats__header-bpm">bpm</li>
+                        <li class="beats__header-item beats__header-tags">tags</li>
+                    </ul>
+                    <ul class="beats__list">
+
+                    </ul>
+                    <a class="primary-btn" href="#beatspage">BROWSE ALL TRACKS</a>
+                </div>
+            </section>
+        </div>
+    </main>
+    <div class="beat-fixed">
+        <div class="beat-fixed__progress">
+            <div class="beat-fixed__progress-current">
+                <div class="beat-fixed__progress-thumb"></div>
+            </div>
+            <div class="beat-fixed__progress-line"></div>
+        </div>
+        <div class="beat-fixed__cover">
+            <img class="beat-fixed__img" src="./images/covers/jerkdigicore-cover.png" alt="beat cover">
+        </div>
+        <div class="beat-fixed__info">
+            <p class="beat-fixed__title">jerkdigicore</p>
+            <a class="beat-fixed__author" href="https://www.beatstars.com/star3d" target="_blank">star3d</a>
+        </div>
+        <div class="beat-buttons">
+            <a class="beat-btn" id="beat-fixed-download" href="#" target='_blank'>
+                <img class="beat-btn__icon" src="./images/download-icon.svg" alt="download icon">
+            </a>
+            <button class="beat-btn" id="beats-share-btn">
+                <img class="beat-btn__icon" src="./images/share-icon.svg" alt="share icon">
+            </button>
+        </div>
+        <div class="beat-fixed__controls">
+            <button class="beat-fixed__prev">
+                <svg class="beat-fixed__prev-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="15"
+                    viewBox="0 0 16 15" fill="none">
+                    <line x1="0.5" y1="-0.5" x2="12.5" y2="-0.5" transform="matrix(0 1 1 0 1 1)" stroke="#756E6E"
+                        stroke-linecap="round" />
+                    <path
+                        d="M3.3748 6.64956C2.7429 7.04045 2.7429 7.95955 3.3748 8.35044L10.9739 13.0512C11.6401 13.4633 12.5 12.9841 12.5 12.2007V2.79926C12.5 2.0159 11.6401 1.53672 10.9739 1.94882L3.3748 6.64956Z"
+                        fill="#756E6E" />
+                </svg>
+            </button>
+            <button class="beat-fixed__play">
+                <svg class="beat-fixed__pause-icon" id="beat-fixed-pause-icon" xmlns="http://www.w3.org/2000/svg"
+                    width="8" height="16" viewBox="0 0 8 16" fill="none">
+                    <path d="M0.5 1L0.499999 15" stroke="#FF00C8" stroke-linecap="round" />
+                    <path d="M7.5 1L7.5 15" stroke="#FF00C8" stroke-linecap="round" />
+                </svg>
+                <svg class="beat-fixed__play-icon" id="beat-fixed-play-icon" xmlns="http://www.w3.org/2000/svg"
+                    width="16" height="20" viewBox="0 0 16 20" fill="none">
+                    <path
+                        d="M14.5881 8.84288C15.2786 9.33353 15.2786 10.3588 14.5881 10.8494L5.94368 16.992C5.12877 17.5711 4 16.9884 4 15.9888L4 3.70356C4 2.70386 5.12877 2.12122 5.94368 2.70028L14.5881 8.84288Z"
+                        fill="#FF00C8" />
+                </svg>
+            </button>
+            <button class="beat-fixed__next">
+                <svg class="beat-fixed__next-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="15"
+                    viewBox="0 0 16 15" fill="none">
+                    <line x1="15.5" y1="1.5" x2="15.5" y2="13.5" stroke="#756E6E" stroke-linecap="round" />
+                    <path
+                        d="M12.6252 6.64956C13.2571 7.04045 13.2571 7.95955 12.6252 8.35044L5.02607 13.0512C4.35987 13.4633 3.5 12.9841 3.5 12.2007V2.79926C3.5 2.0159 4.35987 1.53672 5.02607 1.94882L12.6252 6.64956Z"
+                        fill="#756E6E" />
+                </svg>
+            </button>
+        </div>
+        <div class="beat-fixed__volume">
+            <div class="beat-fixed__volume-icon">
+                <img class="beat-fixed__volume-img" src="./images/volume-icon.svg" alt="volume-icon">
+                <div class="beat-fixed__volume-low"></div>
+                <div class="beat-fixed__volume-medium"></div>
+                <div class="beat-fixed__volume-high"></div>
+            </div>
+            <input class="beat-fixed__volume-range" type="range" min="0" max="50" value="10">
+        </div>
+    </div>
+    <div class="audio">
+
+    </div>
+    <script src=" https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="js/main.js" type="module"></script>
+</body>
+
+</html>

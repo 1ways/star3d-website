@@ -1,0 +1,25 @@
+:root {
+    --white: #fff;
+    --black: #000;
+    --bg: #000;
+    --primary: #ff00c8;
+    --secondary: #00ffd5;
+    --border: #2a1a2e;
+    --main-text: #d0abc8;
+    --secondary-text: rgba(255, 0, 200, 65%);
+    --progress-bar: #373333;
+    --primary-gradient: linear-gradient(#ff00c8 0%, #00ffd5 100%);
+    --beat-hover: rgba(42, 26, 46, 40%);
+}
+
+$white: var(--white);
+$black: var(--black);
+$bg: var(--bg);
+$primary: var(--primary);
+$secondary: var(--secondary);
+$border: var(--border);
+$main-text: var(--main-text);
+$secondary-text: var(--secondary-text);
+$progress-bar: var(--progress-bar);
+$primary-gradient: var(--primary-gradient);
+$beat-hover: var(--beat-hover);
