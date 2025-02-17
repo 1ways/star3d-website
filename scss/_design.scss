@@ -75,13 +75,8 @@ a {
 
 .section {
     margin-top: 20px;
-    padding: 20px 0;
+    padding: 20px;
     border: 1px solid $border;
-}
-
-.section-wrapper {
-    max-width: 928px;
-    margin: 0 auto;
 }
 
 .primary-btn {
@@ -346,10 +341,8 @@ a {
 
 // BEATS LIST
 .beats {
-    .section-wrapper {
-        display: flex;
-        flex-direction: column;
-    }
+    display: flex;
+    flex-direction: column;
 
     &__header {
         display: flex;

@@ -65,7 +65,7 @@ renderBeatFixedInfo(beats[0])
 
 // Render waveform and bars
 const waveformContainer = document.getElementById('beat-waveform')
-const totalBars = 155
+const totalBars = 193
 
 function renderWaveformBars() {
     const fragment = document.createDocumentFragment()

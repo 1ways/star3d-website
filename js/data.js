@@ -1,5 +1,15 @@
 export const beats = [
     {
+        cover: './images/covers/classic-cover.png',
+        title: 'classic',
+        bpm: '140',
+        key: 'Emin',
+        time: '02:03',
+        genres: ['hip-hop', 'hyperpop', 'ripsquad'],
+        audio: './audio/classic.mp3',
+        link: 'https://bsta.rs/PpqIvL',
+    },
+    {
         cover: './images/covers/scratch-cover.png',
         title: 'scratch',
         bpm: '160',
