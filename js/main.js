@@ -1,6 +1,9 @@
 import { beats } from './data.js'
 
+// Global variables
 let currentBeatIndex = 0
+const currentAudio = new Audio(beats[currentBeatIndex].audio)
+let isPaused = true
 
 // Create and render default audio
 function renderDefaultAudio() {
@@ -16,9 +19,6 @@ function renderDefaultAudio() {
 renderDefaultAudio()
 
 // Render Main Beat Logic
-const currentAudio = document.getElementById('current-audio')
-let isPaused = true
-
 function renderMainBeatInfo(beat) {
     currentAudio.src = beat.audio
 
