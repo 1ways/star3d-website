@@ -28,12 +28,6 @@
                         <li class="header__list-item">
                             <a class="header__list-link" href="#beats">Beats</a>
                         </li>
-                        <li class="header__list-item">
-                            <a class="header__list-link" href="#about">About</a>
-                        </li>
-                        <li class="header__list-item">
-                            <a class="header__list-link" href="#contact">Contact</a>
-                        </li>
                     </ul>
                 </nav>
                 <button class="header__burger">
@@ -41,74 +35,33 @@
                     <span class="header__burger-line"></span>
                     <span class="header__burger-line"></span>
                 </button>
-                <!-- <div class="header__search">
-                    <input class="header__search-input" type="text" placeholder="Search">
-                    <div class="header__search-results">
-                        <ul class="header__results-list">
-                            <li class="header__results-item">hip-hop</li>
-                            <li class="header__results-item">hyperpop</li>
-                            <li class="header__results-item">digicore</li>
-                        </ul>
-                    </div>
-                </div> -->
             </div>
         </div>
     </header>
     <main class="main">
         <div class="container">
-            <section class="section beat">
-                <div class="section-wrapper">
-                    <div class="beat__inner">
-                        <div class="beat__info">
-                            <div class="beat__info-cover">
-                                <img class="beat__info-cover-img" src="" alt="beat cover">
-                                <button class="beat__info-play" id="beat-play-btn">
-                                    <svg class="beat__info-pause-icon" id="pause-icon"
-                                        xmlns="http://www.w3.org/2000/svg" width="8" height="16" viewBox="0 0 8 16"
-                                        fill="none">
-                                        <path d="M0.5 1L0.499999 15" stroke="#FF00C8" stroke-linecap="round" />
-                                        <path d="M7.5 1L7.5 15" stroke="#FF00C8" stroke-linecap="round" />
-                                    </svg>
-                                    <svg class="beat__info-play-icon" id="play-icon" xmlns="http://www.w3.org/2000/svg"
-                                        width="16" height="20" viewBox="0 0 16 20" fill="none">
-                                        <path
-                                            d="M14.5881 8.84288C15.2786 9.33353 15.2786 10.3588 14.5881 10.8494L5.94368 16.992C5.12877 17.5711 4 16.9884 4 15.9888L4 3.70356C4 2.70386 5.12877 2.12122 5.94368 2.70028L14.5881 8.84288Z"
-                                            fill="#FF00C8" />
-                                    </svg>
-                                </button>
-                            </div>
-                            <div class="beat__info-left">
-                                <h1 class="beat__info-title"></h1>
-                                <p class="beat__info-bpm"></p>
-                                <div class="beat__info-buttons">
-                                    <a class="primary-btn" id="beat-download-btn" href="#" target='_blank'>DOWNLOAD</a>
-                                    <button class="primary-btn" id="beat-share-btn">SHARE</button>
-                                </div>
-                            </div>
-                            <div class="beat__info-right">
-                                <ul class="genres" id="beat-info-genres">
-
-                                </ul>
-                                <p class="beat__info-time" id="beat-info-time">00:00</p>
-                            </div>
-                            <div class="beat__info-big-star stars-animation">
-                                <img class="beat__info-big-star-img" src="./images/beat-big-star-decor.svg"
-                                    alt="beat big star decor">
-                            </div>
-                            <div class="beat__info-stars">
-                                <img class="beat__info-stars-small stars-animation"
-                                    src="./images/beat-stars-decor-small.svg" alt="beat stars decor">
-                                <img class="beat__info-stars-big stars-animation"
-                                    src="./images/beat-stars-decor-big.svg" alt="beat stars decor">
-                                <img class="beat__info-stars-medium stars-animation"
-                                    src="./images/beat-stars-decor-medium.svg" alt="beat stars decor">
-                            </div>
+            <section class="section beats" id="beats">
+                <h1 class="main-title">Beats</h1>
+                <div class="beats__selects">
+                    <div class="beats__select">
+                        <div class="beats__select-head">
+                            <p class="beats__select-selected" id="bpm-selected">All Bpm</p>
+                            <img class="beats__select-arrow" src="./images/select-arrow.svg" alt="select arrow">
                         </div>
-                        <div class="beat__waveform" id='beat-waveform'></div>
+                        <div class="beats__select-body" id="bpm-select">
+
+                        </div>
+                    </div>
+                    <div class="beats__select">
+                        <div class="beats__select-head">
+                            <p class="beats__select-selected" id="genres-selected">All Genres</p>
+                            <img class="beats__select-arrow" src="./images/select-arrow.svg" alt="select arrow">
+                        </div>
+                        <div class="beats__select-body" id="genres-select">
+                            <div class="beats__select-option">All Genres</div>
+                        </div>
                     </div>
                 </div>
-            </section>
-            <section class="section beats" id="beats">
                 <ul class="beats__header">
                     <li class="beats__header-item beats__header-title">title</li>
                     <li class="beats__header-item beats__header-time">time</li>
@@ -118,60 +71,6 @@
                 <ul class="beats__list">
 
                 </ul>
-                <a class="primary-btn" id="all-tracks" href="./beats.html">BROWSE ALL TRACKS</a>
-            </section>
-            <section class="section section-center about" id="about">
-                <h2 class="section-title">About</h2>
-                <div class="about__avatar">
-                    <img class="about__avatar-img" src="./images/avatar.jpg" alt="avatar">
-                </div>
-                <p class="about__text">Hi I make digicore and hyperpop beats. All of my beats are free for non-profit
-                    and must be purchased for commercial use.</p>
-                <ul class="socials">
-                    <li class="socials__item">
-                        <a class="socials__link" href="https://www.youtube.com/@star3dexc?sub_confirmation=1"
-                            target="_blank">
-                            <img class="socials__icon" src="./images/yt-icon.svg" alt="youtube icon">
-                        </a>
-                    </li>
-                    <li class="socials__item">
-                        <a class="socials__link" href="https://www.instagram.com/star3dexc/" target="_blank">
-                            <img class="socials__icon" src="./images/ig-icon.svg" alt="instagram icon">
-                        </a>
-                    </li>
-                    <li class="socials__item">
-                        <a class="socials__link" href="https://www.beatstars.com/star3d" target="_blank">
-                            <img class="socials__icon" src="./images/bs-icon.svg" alt="beatstars icon">
-                        </a>
-                    </li>
-                </ul>
-            </section>
-            <section class="section section-center contact" id="contact">
-                <h2 class="section-title">Contact</h2>
-                <form class="contact__form">
-                    <div class="contact__form-row">
-                        <div class="contact__form-wrap">
-                            <label class="contact__form-label" for="name">Your name</label>
-                            <input class="contact__form-input" type="text" placeholder="John" id="name" required>
-                        </div>
-                        <div class="contact__form-wrap">
-                            <label class="contact__form-label" for="email">Email address</label>
-                            <input class="contact__form-input" type="email" placeholder="john@example.com" id="email"
-                                required>
-                        </div>
-                    </div>
-                    <div class="contact__form-wrap">
-                        <label class="contact__form-label" for="subject">Subject</label>
-                        <input class="contact__form-input" type="text" placeholder="Collaboration" id="subject"
-                            required>
-                    </div>
-                    <div class="contact__form-wrap">
-                        <label class="contact__form-label" for="message">Message</label>
-                        <input class="contact__form-input" type="text"
-                            placeholder="I'm an artist and I'd like to work with you" id="message" required>
-                    </div>
-                    <button class="primary-btn" type="submit">SEND MESSAGE</button>
-                </form>
             </section>
         </div>
     </main>
@@ -278,7 +177,7 @@
                 <div class="beat-fixed__volume-medium"></div>
                 <div class="beat-fixed__volume-high"></div>
             </div>
-            <input class="beat-fixed__volume-range" type="range" min="0" max="50" value="25">
+            <input class="beat-fixed__volume-range" type="range" min="0" max="50" value="10">
         </div>
     </div>
     <div class="modal" id="licensing-modal">
@@ -456,8 +355,6 @@
             </div>
         </div>
     </div>
-    <script src="https://unpkg.com/wavesurfer.js"></script>
-    <script src=" https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="js/main.js" type="module"></script>
 </body>
 

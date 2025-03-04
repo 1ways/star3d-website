@@ -1,0 +1,244 @@
+@media (max-width: 1250px) {
+    .container {
+        max-width: 900px;
+    }
+
+    .logo {
+        &__img {
+            width: 140px;
+        }
+
+        &__decor {
+            width: 61px;
+        }
+    }
+
+    .beats {
+        &__header-tags,
+        .genres {
+            display: none;
+        }
+
+        &__header-bpm,
+        &__list-text-bpm {
+            width: 50px !important;
+        }
+    }
+
+    .licensing__items {
+        flex-wrap: wrap;
+    }
+}
+
+@media (max-width: 768px) {
+    .header {
+        &__inner {
+            align-items: center;
+            border: none;
+        }
+
+        &__burger {
+            position: relative;
+            z-index: 2001;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 30px;
+            height: 20px;
+            background: none;
+            border: none;
+
+            &.show {
+                .header__burger-line {
+                    &:nth-child(1) {
+                        opacity: 0;
+                        transform: translateY(10px);
+                    }
+
+                    &:nth-child(3) {
+                        opacity: 0;
+                        transform: translateY(-10px);
+                    }
+                }
+            }
+
+            &-line {
+                height: 3px;
+                background-color: $secondary-text;
+                border-radius: 2px;
+                transition: all 0.1s linear;
+            }
+        }
+
+        &__nav {
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            z-index: 2000;
+            transform: translate(-10px, 0);
+            background: $bg;
+            display: flex;
+            justify-content: start;
+
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+            transition: all 0.1s ease;
+
+            &.show {
+                opacity: 1;
+                visibility: visible;
+                pointer-events: all;
+                transform: translateX(0);
+            }
+        }
+
+        &__list {
+            gap: 30px;
+
+            &-link {
+                font-size: 22px;
+            }
+        }
+    }
+
+    .section {
+        border: none;
+        padding: 0;
+        margin-top: 70px;
+    }
+
+    .beat {
+        margin-top: 20px;
+
+        &__info {
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+
+            &-left {
+                margin-bottom: 20px;
+            }
+
+            &-cover {
+                margin-right: 0;
+            }
+
+            &-bpm {
+                order: -1;
+                margin-bottom: 10px;
+            }
+
+            &-time {
+                display: none;
+            }
+
+            &-big-star {
+                left: 0;
+                top: 35px;
+            }
+
+            &-stars {
+                right: 15px;
+                top: 184px;
+            }
+        }
+
+        &__waveform {
+            margin-top: 20px;
+        }
+    }
+
+    .genres__item {
+        font-size: 16px;
+    }
+
+    .beats {
+        margin-top: 20px;
+
+        &__header {
+            display: none;
+        }
+
+        &__list-title {
+            flex: 1;
+        }
+
+        &__list-buy {
+            border: 1px solid $border;
+            border-radius: 2px;
+            background: $bg;
+            padding: 0;
+            width: 36px;
+
+            &-text {
+                display: none;
+            }
+
+            &-icon {
+                display: block;
+            }
+        }
+    }
+
+    .beats .beats__header-time,
+    .beats .beats__list-text-time,
+    .beats .beats__header-bpm,
+    .beats .beats__list-text-bpm {
+        display: none;
+    }
+
+    .footer {
+        margin-top: 40px;
+
+        &__inner {
+            border: none;
+            padding: 15px 0 40px;
+        }
+    }
+
+    .beat-fixed__volume {
+        display: none;
+    }
+
+    .beat-fixed .beat-buttons {
+        display: none;
+    }
+
+    .modal__title {
+        font-size: 24px;
+    }
+
+    .licensing__item-title {
+        font-size: 20px;
+    }
+
+    .licensing__item-price {
+        font-size: 28px;
+    }
+
+    .licensing__item-price--negotiate {
+        font-size: 22px;
+    }
+
+    .licensing__list-text {
+        font-size: 15px;
+    }
+
+    .main-title {
+        font-size: 34px;
+    }
+
+    .contact__form {
+        width: 100%;
+    }
+
+    .policy__text {
+        font-size: 15px;
+    }
+
+    .policy__title {
+        font-size: 18px;
+    }
+}
