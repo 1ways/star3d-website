@@ -1,5 +1,25 @@
 export const beats = [
     {
+        cover: './images/covers/break-cover.png',
+        title: 'break',
+        bpm: '140',
+        key: 'Dmin',
+        time: '02:03',
+        genres: ['hip-hop', 'hyperpop', 'elxnce'],
+        audio: './audio/break.mp3',
+        link: 'https://bsta.rs/QShZbk',
+    },
+    {
+        cover: './images/covers/trying-cover.png',
+        title: 'trying',
+        bpm: '175',
+        key: 'Gmin',
+        time: '01:53',
+        genres: ['hip-hop', 'hyperpop', 'elxnce'],
+        audio: './audio/trying.mp3',
+        link: 'https://bsta.rs/hD2aVG',
+    },
+    {
         cover: './images/covers/shooting-star-cover.png',
         title: 'shooting star',
         bpm: '158',

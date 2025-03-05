@@ -386,11 +386,48 @@ window.addEventListener('DOMContentLoaded', () => {
         }
     })
 
+    // Change Fixed Progress bar by dragging the thumb
+    const thumb = document.querySelector('.beat-fixed__progress-thumb')
+
+    function dragThumb() {
+        thumb.addEventListener('mousedown', mouseDown)
+
+        function mouseDown() {
+            document.addEventListener('mousemove', mouseMove)
+            document.addEventListener('mouseup', mouseUp)
+        }
+
+        function mouseMove(e) {
+            let currentX = e.clientX
+
+            const progressBarWidth = beatFixedProgressBar.clientWidth
+
+            const percentage = Math.floor((currentX / progressBarWidth) * 100)
+            currentAudio.currentTime =
+                (percentage / 100) * currentAudio.duration
+
+            if (currentPage === '/') {
+                updateAudioCurrentTime(currentAudio)
+            }
+
+            updateAudioProgress(currentAudio)
+        }
+
+        function mouseUp() {
+            document.removeEventListener('mousemove', mouseMove)
+        }
+    }
+
+    dragThumb()
+
     currentAudio.addEventListener('play', () => {
         // Show fixed beat
         fixedBeatEl.style.transform = `translateY(0)`
         // Add margin bottom to the body
         document.body.style.paddingBottom = '70px'
+
+        // Start waveform animation
+        barsAnimation(currentAudio)
 
         if (currentBeatsArray.length) {
             // Highlight current beat in beat list
@@ -492,7 +529,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
         if (currentPage === '/') {
             updateAudioCurrentTime(currentAudio)
-            barsAnimation(currentAudio)
+            // barsAnimation(currentAudio)
         }
         updateAudioProgress(currentAudio)
         togglePlayAndPauseIcons(

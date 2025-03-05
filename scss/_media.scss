@@ -37,39 +37,6 @@
             border: none;
         }
 
-        &__burger {
-            position: relative;
-            z-index: 2001;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            width: 30px;
-            height: 20px;
-            background: none;
-            border: none;
-
-            &.show {
-                .header__burger-line {
-                    &:nth-child(1) {
-                        opacity: 0;
-                        transform: translateY(10px);
-                    }
-
-                    &:nth-child(3) {
-                        opacity: 0;
-                        transform: translateY(-10px);
-                    }
-                }
-            }
-
-            &-line {
-                height: 3px;
-                background-color: $secondary-text;
-                border-radius: 2px;
-                transition: all 0.1s linear;
-            }
-        }
-
         &__nav {
             top: 0;
             bottom: 0;
@@ -107,6 +74,10 @@
         border: none;
         padding: 0;
         margin-top: 70px;
+    }
+
+    .main-title {
+        font-size: 34px;
     }
 
     .beat {
@@ -165,6 +136,14 @@
             flex: 1;
         }
 
+        &__list-text-time {
+            display: none;
+        }
+
+        &__list-text-bpm {
+            display: none;
+        }
+
         &__list-buy {
             border: 1px solid $border;
             border-radius: 2px;
@@ -180,13 +159,14 @@
                 display: block;
             }
         }
+
+        #beats-share-btn {
+            display: none;
+        }
     }
 
-    .beats .beats__header-time,
-    .beats .beats__list-text-time,
-    .beats .beats__header-bpm,
-    .beats .beats__list-text-bpm {
-        display: none;
+    .contact__form {
+        width: 100%;
     }
 
     .footer {
@@ -198,16 +178,41 @@
         }
     }
 
-    .beat-fixed__volume {
-        display: none;
+    .beat-fixed {
+        padding: 20px;
+
+        &__progress {
+            height: 8px;
+            top: -8px;
+
+            &-thumb {
+                transform: translateY(-50%) scale(1.3);
+            }
+        }
+
+        &__cover {
+            display: none;
+        }
+
+        .beat-buttons {
+            display: none;
+        }
+
+        &__controls {
+            transform: translate(-50%, -50%);
+        }
+
+        &__volume {
+            display: none;
+        }
     }
 
-    .beat-fixed .beat-buttons {
-        display: none;
-    }
+    .modal {
+        padding: 15px;
 
-    .modal__title {
-        font-size: 24px;
+        &__title {
+            font-size: 24px;
+        }
     }
 
     .licensing__item-title {
@@ -224,14 +229,6 @@
 
     .licensing__list-text {
         font-size: 15px;
-    }
-
-    .main-title {
-        font-size: 34px;
-    }
-
-    .contact__form {
-        width: 100%;
     }
 
     .policy__text {
