@@ -640,8 +640,6 @@ window.addEventListener('DOMContentLoaded', () => {
     }
 
     function renderSelectOptions() {
-        console.log(currentPage)
-
         const bpmSelectBody = document.getElementById('bpm-select')
         const genresSelectBody = document.getElementById('genres-select')
 
@@ -663,7 +661,7 @@ window.addEventListener('DOMContentLoaded', () => {
         genresSelectBody.innerHTML = genresHtml
     }
 
-    currentPage === '/beats.html' && renderSelectOptions()
+    currentPage === '/beats' && renderSelectOptions()
 
     // Window events
     window.addEventListener('click', (e) => {
