@@ -640,6 +640,8 @@ window.addEventListener('DOMContentLoaded', () => {
     }
 
     function renderSelectOptions() {
+        console.log(currentPage)
+
         const bpmSelectBody = document.getElementById('bpm-select')
         const genresSelectBody = document.getElementById('genres-select')
 
