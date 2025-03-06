@@ -226,6 +226,13 @@
             transform: translate(-50%, -50%);
         }
 
+        &__next,
+        &__prev {
+            transform: scale(1.5);
+            display: flex;
+            align-items: center;
+        }
+
         &__volume {
             display: none;
         }
@@ -261,5 +268,16 @@
 
     .policy__title {
         font-size: 18px;
+    }
+}
+
+@media (max-width: 560px) {
+    .beat-fixed {
+        &__title {
+            width: 90px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
     }
 }
