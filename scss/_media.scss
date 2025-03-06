@@ -68,6 +68,10 @@
                 font-size: 22px;
             }
         }
+
+        &__burger {
+            display: flex;
+        }
     }
 
     .section {
@@ -127,6 +131,19 @@
 
     .beats {
         margin-top: 20px;
+
+        &__select {
+            width: 180px;
+
+            &-selected {
+                font-size: 18px;
+            }
+
+            &-option {
+                font-size: 16px;
+                padding: 10px 15px;
+            }
+        }
 
         &__header {
             display: none;
@@ -194,8 +211,15 @@
             display: none;
         }
 
+        &__info {
+            margin-right: 0;
+        }
+
         .beat-buttons {
-            display: none;
+            position: absolute;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
         }
 
         &__controls {

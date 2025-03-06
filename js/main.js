@@ -29,6 +29,10 @@ window.addEventListener('DOMContentLoaded', () => {
         const beatDownloadBtn = document.getElementById('beat-download-btn')
         beatDownloadBtn.href = beat.link
 
+        // Render beat download link share button data-link attr
+        const beatShareBtn = document.getElementById('beat-share-btn')
+        beatShareBtn.dataset.link = beat.link
+
         // Render beat info genres
         const genresList = document.getElementById('beat-info-genres')
         genresList.innerHTML = getGenres(beat.genres)
@@ -280,7 +284,9 @@ window.addEventListener('DOMContentLoaded', () => {
                                                 src="./images/download-icon.svg" 
                                                 alt="download icon">
                                         </a>
-                                        <button class="beat-btn" id="beats-share-btn">
+                                        <button class="beat-btn" id="beats-share-btn" data-link=${
+                                            beatsArr[i].link
+                                        }>
                                             <img 
                                                 class="beat-btn__icon" 
                                                 src="./images/share-icon.svg" 
@@ -364,6 +370,11 @@ window.addEventListener('DOMContentLoaded', () => {
         // change download link
         const beatFixedLink = document.getElementById('beat-fixed-download')
         beatFixedLink.href = beat.link
+        // change data-link attr
+        const beatFixedShareBtn = document.querySelector(
+            '.beat-fixed-share-btn'
+        )
+        beatFixedShareBtn.dataset.link = beat.link
     }
 
     // Change Fixed Progress bar by clicking on it
@@ -749,13 +760,29 @@ window.addEventListener('DOMContentLoaded', () => {
                 .querySelectorAll('.beats__select')
                 .forEach((select) => select.classList.remove('show'))
         }
+
+        // Share button logic
+        const shareBtn =
+            e.target.closest('#beats-share-btn') ||
+            e.target.closest('#beat-share-btn')
+        if (shareBtn) {
+            navigator.clipboard.writeText(shareBtn.dataset.link)
+
+            const sharePopup = document.querySelector('.share-popup')
+
+            sharePopup.classList.add('show')
+
+            setTimeout(() => sharePopup.classList.remove('show'), 1000)
+        }
     })
 
     // Change audio state by pressing space key
     window.addEventListener('keydown', (e) => {
         if (e.key == ' ' || e.code == 'Space' || e.keyCode == 32) {
-            e.preventDefault()
-            audioHandle()
+            if (document.activeElement.tagName != 'INPUT') {
+                e.preventDefault()
+                audioHandle()
+            }
         }
     })
 
@@ -783,5 +810,28 @@ window.addEventListener('DOMContentLoaded', () => {
                 gsap.killTweensOf('.stars-animation')
             }
         }
+    }
+
+    // EmailJs
+    if (currentPage === '/') {
+        emailjs.init('BcKLWW9Twf55eXXSH')
+
+        const form = document.querySelector('.contact__form')
+
+        form.addEventListener('submit', (e) => {
+            e.preventDefault()
+
+            emailjs.sendForm('service_ytrh1ef', 'template_7pzwjkj', form).then(
+                () => {
+                    document.querySelector('.contact__status').textContent =
+                        'Message sent successfully!'
+                },
+                (error) => {
+                    document.querySelector('.contact__status').textContent =
+                        'Failed to send message.'
+                    console.error('EmailJS error:', error)
+                }
+            )
+        })
     }
 })
