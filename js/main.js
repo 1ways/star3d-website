@@ -712,7 +712,10 @@ window.addEventListener('DOMContentLoaded', () => {
         }
 
         // Selects logic
-        const select = e.target.closest('.beats__select')
+        const target = e.target
+        if (!target) return
+
+        const select = target.closest('.beats__select')
 
         if (select) {
             select.classList.toggle('show')
@@ -722,14 +725,14 @@ window.addEventListener('DOMContentLoaded', () => {
                     '.beats__select-selected'
                 )
 
-                selectedOption.textContent = e.target.textContent
+                selectedOption.innerText = e.target.innerText
                 select.classList.remove('show')
 
                 // Get selected options
                 const bpmSelectedValue =
-                    document.getElementById('bpm-selected').textContent
+                    document.getElementById('bpm-selected').innerText
                 const genresSelectedValue =
-                    document.getElementById('genres-selected').textContent
+                    document.getElementById('genres-selected').innerText
 
                 // Get filtered beats arr
                 const getFilteredBeatsArr = () => {
@@ -856,58 +859,4 @@ window.addEventListener('DOMContentLoaded', () => {
     }
 
     document.addEventListener('touchstart', () => {}, true)
-
-    function isInAppBrowser() {
-        const userAgent = navigator.userAgent.toLowerCase()
-
-        alert(userAgent)
-
-        // Detect common in-app browsers
-        const inAppKeywords = [
-            'fbav',
-            'instagram',
-            'twitter',
-            'snapchat',
-            'telegram',
-            'discord',
-            'linkedin',
-            'whatsapp',
-            'pinterest',
-            'tiktok',
-        ]
-
-        // Telegram-specific detection
-        const isTelegram = userAgent.includes('telegram')
-
-        // Discord-specific detection
-        const isDiscord = userAgent.includes('discord')
-
-        // Detect iOS WebView (iOS hides Safari identifier in WebView)
-        const isIOSWebView =
-            /iphone|ipod|ipad/i.test(userAgent) && !/safari/i.test(userAgent)
-
-        // Detect Android WebView (Android WebView lacks "Version" keyword in Chrome)
-        const isAndroidWebView =
-            /android/i.test(userAgent) && /wv|version/i.test(userAgent)
-
-        // If the browser lacks a full brand list, it's likely a WebView
-        const isLimitedBrowserInfo =
-            navigator.userAgentData?.brands?.length === 1
-
-        return (
-            inAppKeywords.some((keyword) => userAgent.includes(keyword)) ||
-            isTelegram ||
-            isDiscord ||
-            isIOSWebView ||
-            isAndroidWebView ||
-            isLimitedBrowserInfo
-        )
-    }
-
-    // Alert the user if they are using an in-app browser
-    if (isInAppBrowser()) {
-        alert(
-            "You're using an in-app browser (e.g., Telegram or Discord). For the best experience, please open this page in Chrome, Safari, or your default browser."
-        )
-    }
 })
