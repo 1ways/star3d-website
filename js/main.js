@@ -865,7 +865,9 @@ window.addEventListener('DOMContentLoaded', () => {
 
     function isInAppBrowser() {
         const userAgent = navigator.userAgent.toLowerCase()
+        const userAgentData = navigator.userAgentData || {}
 
+        // Common in-app browser indicators
         const inAppKeywords = [
             'fbav',
             'instagram',
@@ -879,20 +881,31 @@ window.addEventListener('DOMContentLoaded', () => {
             'tiktok',
         ]
 
+        // Detect if userAgent contains any in-app browser keywords
         if (inAppKeywords.some((keyword) => userAgent.includes(keyword))) {
             return true
         }
 
-        const isWebView =
-            /(iphone|ipod|ipad).*applewebkit(?!.*safari)/i.test(userAgent) ||
-            /(android(?!.*chrome)|wv)/i.test(userAgent)
+        // Detect iOS WebView (hides Safari identifier)
+        const isIOSWebView =
+            /iphone|ipod|ipad/i.test(userAgent) && !/safari/i.test(userAgent)
 
-        return isWebView
+        // Detect Android WebView (missing "Version" keyword in Chrome)
+        const isAndroidWebView =
+            /android/i.test(userAgent) && /wv|version/i.test(userAgent)
+
+        // Check if the browser doesn't report a full browser name (common in WebViews)
+        const isLimitedBrowserInfo =
+            userAgentData.brands && userAgentData.brands.length === 1
+
+        return isIOSWebView || isAndroidWebView || isLimitedBrowserInfo
     }
 
+    // Alert the user if they are using an in-app browser
     if (isInAppBrowser()) {
         alert(
             "You're using an in-app browser. For the best experience, please open this page in Chrome, Safari, or your default browser."
         )
     }
+
 })
