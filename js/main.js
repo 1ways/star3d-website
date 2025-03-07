@@ -712,10 +712,7 @@ window.addEventListener('DOMContentLoaded', () => {
         }
 
         // Selects logic
-        const target = e.target
-        if (!target) return
-
-        const select = target.closest('.beats__select')
+        const select = e.target.closest('.beats__select')
 
         if (select) {
             select.classList.toggle('show')
@@ -859,4 +856,24 @@ window.addEventListener('DOMContentLoaded', () => {
     }
 
     document.addEventListener('touchstart', () => {}, true)
+
+    function isSafari() {
+        const ua = navigator.userAgent.toLowerCase()
+
+        // Detect Safari browser, but not Chrome or other browsers
+        return (
+            ua.includes('safari') &&
+            !ua.includes('chrome') &&
+            !ua.includes('crios') && // Exclude Chrome on iOS
+            !ua.includes('firefox') &&
+            !ua.includes('edg')
+        )
+    }
+
+    if (isSafari()) {
+        document.body.insertAdjacentHTML(
+            'afterbegin',
+            '<div style="position:fixed; top:0; left:0; width:100%; background:red; color:white; padding:10px; text-align:center; z-index:9999999;">For a better experience, use Chrome or Firefox instead of Safari.</div>'
+        )
+    }
 })
