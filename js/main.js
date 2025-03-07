@@ -862,4 +862,17 @@ window.addEventListener('DOMContentLoaded', () => {
     }
 
     document.addEventListener('touchstart', () => {}, true)
+
+    function isInAppBrowser() {
+        const userAgent = navigator.userAgent.toLowerCase()
+        return /fbav|instagram|twitter|snapchat|telegram|discord|linkedin|whatsapp/.test(
+            userAgent
+        )
+    }
+
+    if (isInAppBrowser()) {
+        alert(
+            'For the best experience, please open this link in Safari or Chrome.'
+        )
+    }
 })
