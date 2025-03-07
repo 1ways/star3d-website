@@ -712,13 +712,7 @@ window.addEventListener('DOMContentLoaded', () => {
         }
 
         // Selects logic
-        // const select = e.target.closest('.beats__select')
-
-        const target =
-            e.target.nodeType === Node.TEXT_NODE
-                ? e.target.parentElement
-                : e.target
-        const select = target.closest('.beats__select')
+        const select = e.target.closest('.beats__select')
 
         if (select) {
             select.classList.toggle('show')
@@ -865,9 +859,10 @@ window.addEventListener('DOMContentLoaded', () => {
 
     function isInAppBrowser() {
         const userAgent = navigator.userAgent.toLowerCase()
-        const userAgentData = navigator.userAgentData || {}
 
-        // Common in-app browser indicators
+        alert(userAgent)
+
+        // Detect common in-app browsers
         const inAppKeywords = [
             'fbav',
             'instagram',
@@ -881,31 +876,38 @@ window.addEventListener('DOMContentLoaded', () => {
             'tiktok',
         ]
 
-        // Detect if userAgent contains any in-app browser keywords
-        if (inAppKeywords.some((keyword) => userAgent.includes(keyword))) {
-            return true
-        }
+        // Telegram-specific detection
+        const isTelegram = userAgent.includes('telegram')
 
-        // Detect iOS WebView (hides Safari identifier)
+        // Discord-specific detection
+        const isDiscord = userAgent.includes('discord')
+
+        // Detect iOS WebView (iOS hides Safari identifier in WebView)
         const isIOSWebView =
             /iphone|ipod|ipad/i.test(userAgent) && !/safari/i.test(userAgent)
 
-        // Detect Android WebView (missing "Version" keyword in Chrome)
+        // Detect Android WebView (Android WebView lacks "Version" keyword in Chrome)
         const isAndroidWebView =
             /android/i.test(userAgent) && /wv|version/i.test(userAgent)
 
-        // Check if the browser doesn't report a full browser name (common in WebViews)
+        // If the browser lacks a full brand list, it's likely a WebView
         const isLimitedBrowserInfo =
-            userAgentData.brands && userAgentData.brands.length === 1
+            navigator.userAgentData?.brands?.length === 1
 
-        return isIOSWebView || isAndroidWebView || isLimitedBrowserInfo
+        return (
+            inAppKeywords.some((keyword) => userAgent.includes(keyword)) ||
+            isTelegram ||
+            isDiscord ||
+            isIOSWebView ||
+            isAndroidWebView ||
+            isLimitedBrowserInfo
+        )
     }
 
     // Alert the user if they are using an in-app browser
     if (isInAppBrowser()) {
         alert(
-            "You're using an in-app browser. For the best experience, please open this page in Chrome, Safari, or your default browser."
+            "You're using an in-app browser (e.g., Telegram or Discord). For the best experience, please open this page in Chrome, Safari, or your default browser."
         )
     }
-
 })
