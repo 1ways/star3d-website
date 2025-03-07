@@ -712,7 +712,13 @@ window.addEventListener('DOMContentLoaded', () => {
         }
 
         // Selects logic
-        const select = e.target.closest('.beats__select')
+        // const select = e.target.closest('.beats__select')
+
+        const target =
+            e.target.nodeType === Node.TEXT_NODE
+                ? e.target.parentElement
+                : e.target
+        const select = target.closest('.beats__select')
 
         if (select) {
             select.classList.toggle('show')
