@@ -42,14 +42,19 @@ window.addEventListener('DOMContentLoaded', () => {
     const waveformContainer = document.getElementById('beat-waveform')
     let totalBars = Math.round(waveformContainer?.offsetWidth * 0.1665)
     if (currentPage === '/') {
-        // Change totalBars when screen width lower than 1250px
-        window.addEventListener('resize', () => {
-            totalBars = Math.round(waveformContainer.offsetWidth * 0.1665)
+        let lastWidth = window.innerWidth
 
-            waveformContainer.innerHTML = ''
-            renderWaveformBars()
-            barsItems = document.querySelectorAll('.beat__waveform-bar')
-            barsAnimation(currentAudio)
+        window.addEventListener('resize', () => {
+            let currentWidth = window.innerWidth
+
+            if (currentWidth !== lastWidth) {
+                totalBars = Math.round(waveformContainer.offsetWidth * 0.1665)
+
+                waveformContainer.innerHTML = ''
+                renderWaveformBars()
+                barsItems = document.querySelectorAll('.beat__waveform-bar')
+                barsAnimation(currentAudio)
+            }
         })
     }
 
@@ -672,7 +677,8 @@ window.addEventListener('DOMContentLoaded', () => {
         genresSelectBody.innerHTML = genresHtml
     }
 
-    currentPage === '/beats' && renderSelectOptions()
+    ;(currentPage === '/beats' || currentPage === '/beats.html') &&
+        renderSelectOptions()
 
     // Window events
     window.addEventListener('click', (e) => {
@@ -709,7 +715,7 @@ window.addEventListener('DOMContentLoaded', () => {
         const select = e.target.closest('.beats__select')
 
         if (select) {
-            select.classList.add('show')
+            select.classList.toggle('show')
 
             if (e.target.classList.contains('beats__select-option')) {
                 const selectedOption = select.querySelector(

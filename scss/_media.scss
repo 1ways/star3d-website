@@ -131,16 +131,24 @@
     .beats {
         margin-top: 20px;
 
+        &__selects {
+            margin-bottom: 20px;
+        }
+
         &__select {
             width: 180px;
 
+            &-head {
+                padding: 10px;
+            }
+
             &-selected {
-                font-size: 18px;
+                font-size: 16px;
             }
 
             &-option {
                 font-size: 16px;
-                padding: 10px 15px;
+                padding: 10px;
             }
         }
 
