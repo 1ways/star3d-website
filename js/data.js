@@ -1,5 +1,15 @@
 export const beats = [
     {
+        cover: './images/covers/voicev2-cover.png',
+        title: 'voicev2',
+        bpm: '160',
+        key: 'Bmin',
+        time: '02:03',
+        genres: ['hip-hop', 'hyperpop', 'elxnce'],
+        audio: './audio/voicev2.mp3',
+        link: 'https://bsta.rs/YlJ6UF',
+    },
+    {
         cover: './images/covers/break-cover.png',
         title: 'break',
         bpm: '140',

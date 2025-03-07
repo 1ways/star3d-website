@@ -49,8 +49,10 @@ a {
     transition: all 0.1s linear;
 }
 
-::-webkit-scrollbar-thumb:hover {
-    background: rgba(255, 0, 200, 0.7);
+@media (min-width: 769px) {
+    ::-webkit-scrollbar-thumb:hover {
+        background: rgba(255, 0, 200, 0.7);
+    }
 }
 
 .main-title {
@@ -69,8 +71,10 @@ a {
 .logo {
     position: relative;
 
-    &:hover .logo__decor {
-        transform: scale(1.1);
+    @media (min-width: 769px) {
+        &:hover .logo__decor {
+            transform: scale(1.1);
+        }
     }
 
     &__decor {
@@ -125,8 +129,10 @@ a {
     cursor: pointer;
     transition: all 0.1s linear;
 
-    &:hover {
-        color: $white;
+    @media (min-width: 769px) {
+        &:hover {
+            color: $white;
+        }
     }
 
     &:active {
@@ -143,7 +149,7 @@ a {
         border-radius: 22px;
         border: 1px solid $border;
         color: $main-text;
-        font-size: 18px;
+        font-size: 16px;
         line-height: 13px;
         padding: 10px;
         background: $bg;
@@ -176,8 +182,10 @@ a {
         margin-right: 10px;
     }
 
-    &:hover {
-        opacity: 0.5;
+    @media (min-width: 769px) {
+        &:hover {
+            opacity: 0.5;
+        }
     }
 
     &:active {
@@ -194,8 +202,10 @@ a {
         display: flex;
         transition: all 0.1s linear;
 
-        &:hover {
-            opacity: 0.8;
+        @media (min-width: 769px) {
+            &:hover {
+                opacity: 0.8;
+            }
         }
 
         &:active {
@@ -243,8 +253,10 @@ a {
         &-item {
             display: flex;
 
-            &:hover .header__list-link {
-                color: $primary;
+            @media (min-width: 769px) {
+                &:hover .header__list-link {
+                    color: $primary;
+                }
             }
         }
 
@@ -259,39 +271,36 @@ a {
     }
 
     &__burger {
-        position: relative;
-        z-index: 2001;
+        position: absolute;
+        z-index: 100000;
+        right: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 25px;
+        height: 16px;
         display: flex;
-        align-self: center;
         flex-direction: column;
         justify-content: space-between;
-        width: 30px;
-        height: 20px;
-        background: none;
         border: none;
-
+        background: none;
         display: none;
 
-        &.show {
-            .header__burger-line {
-                &:nth-child(1) {
-                    opacity: 0;
-                    transform: translateY(10px);
-                }
+        &.show &-line:nth-child(1) {
+            transform: translateY(10px);
+            opacity: 0;
+        }
 
-                &:nth-child(3) {
-                    opacity: 0;
-                    transform: translateY(-10px);
-                }
-            }
+        &.show &-line:nth-child(3) {
+            transform: translateY(-10px);
+            opacity: 0;
         }
 
         &-line {
-            height: 3px;
-            background-color: $secondary-text;
+            width: 100%;
+            height: 2px;
             border-radius: 2px;
+            background-color: $primary;
             transition: all 0.1s linear;
-            opacity: 1;
         }
     }
 }
@@ -339,8 +348,10 @@ a {
             cursor: pointer;
             transition: all 0.1s linear;
 
-            &:hover {
-                opacity: 0.7;
+            @media (min-width: 769px) {
+                &:hover {
+                    opacity: 0.7;
+                }
             }
 
             &:active {
@@ -492,8 +503,10 @@ a {
             cursor: pointer;
             transition: all 0.1s linear;
 
-            &:hover {
-                opacity: 0.8;
+            @media (min-width: 769px) {
+                &:hover {
+                    opacity: 0.8;
+                }
             }
         }
 
@@ -536,9 +549,11 @@ a {
             padding: 5px 10px;
             cursor: pointer;
 
-            &:hover {
-                background: $border;
-                color: $white;
+            @media (min-width: 769px) {
+                &:hover {
+                    background: $border;
+                    color: $white;
+                }
             }
         }
     }
@@ -577,8 +592,10 @@ a {
                 background: $beat-hover;
             }
 
-            &:hover {
-                background: $beat-hover;
+            @media (min-width: 769px) {
+                &:hover {
+                    background: $beat-hover;
+                }
             }
 
             &:last-child {
@@ -638,8 +655,10 @@ a {
             justify-content: center;
             transition: all 0.1s linear;
 
-            &:hover {
-                background: transparent;
+            @media (min-width: 769px) {
+                &:hover {
+                    background: transparent;
+                }
             }
 
             &:active {
@@ -693,9 +712,11 @@ a {
         cursor: pointer;
         transition: all 0.1s linear;
 
-        &:hover {
-            height: 8px;
-            top: -8px;
+        @media (min-width: 769px) {
+            &:hover {
+                height: 8px;
+                top: -8px;
+            }
         }
 
         &-line {
@@ -726,8 +747,10 @@ a {
             border: 1px solid $bg;
             transition: all 0.1s linear;
 
-            &:hover {
-                transform: translateY(-50%) scale(1.2);
+            @media (min-width: 769px) {
+                &:hover {
+                    transform: translateY(-50%) scale(1.2);
+                }
             }
         }
     }
@@ -760,8 +783,10 @@ a {
         font-size: 16px;
         color: $main-text;
 
-        &:hover {
-            text-decoration: underline;
+        @media (min-width: 769px) {
+            &:hover {
+                text-decoration: underline;
+            }
         }
     }
 
@@ -782,8 +807,10 @@ a {
         cursor: pointer;
         transition: all 0.1s linear;
 
-        &:hover {
-            opacity: 0.7;
+        @media (min-width: 769px) {
+            &:hover {
+                opacity: 0.7;
+            }
         }
 
         &:active {
@@ -876,8 +903,10 @@ a {
             cursor: pointer;
         }
 
-        &-range:hover {
-            opacity: 0.8;
+        @media (min-width: 769px) {
+            &-range:hover {
+                opacity: 0.8;
+            }
         }
 
         &-range::-webkit-slider-thumb {
@@ -891,8 +920,10 @@ a {
             transition: all 0.1s linear;
         }
 
-        &-range::-webkit-slider-thumb:hover {
-            transform: scale(1.2);
+        @media (min-width: 769px) {
+            &-range::-webkit-slider-thumb:hover {
+                transform: scale(1.2);
+            }
         }
 
         &::-moz-range-track {
@@ -1048,8 +1079,10 @@ a {
             letter-spacing: 1.2px;
             transition: all 0.1s linear;
 
-            &:hover {
-                text-decoration: underline;
+            @media (min-width: 769px) {
+                &:hover {
+                    text-decoration: underline;
+                }
             }
 
             &:active {
@@ -1201,8 +1234,10 @@ a {
         cursor: pointer;
         transition: all 0.1s linear;
 
-        &:hover {
-            opacity: 0.7;
+        @media (min-width: 769px) {
+            &:hover {
+                opacity: 0.7;
+            }
         }
 
         &:active {
@@ -1214,13 +1249,13 @@ a {
 // Share Popup
 .share-popup {
     position: fixed;
-    bottom: 10px;
+    top: 5%;
     z-index: 10000000000000;
     left: 50%;
-    transform: translate(-50%, 10px);
-    border: 1px solid $primary;
+    transform: translate(-50%, -10px);
+    border: 1px solid var(--primary);
     padding: 10px 20px;
-    background: $bg;
+    background: var(--bg);
     border-radius: 2px;
     opacity: 0;
     pointer-events: none;

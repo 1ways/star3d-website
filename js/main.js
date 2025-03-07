@@ -814,24 +814,40 @@ window.addEventListener('DOMContentLoaded', () => {
 
     // EmailJs
     if (currentPage === '/') {
-        emailjs.init('BcKLWW9Twf55eXXSH')
+        emailjs.init('B3RBDIJesOhS2nRxn')
 
         const form = document.querySelector('.contact__form')
 
         form.addEventListener('submit', (e) => {
             e.preventDefault()
 
-            emailjs.sendForm('service_ytrh1ef', 'template_7pzwjkj', form).then(
-                () => {
+            // Disable send message button
+            const sendBtn = document.getElementById('send-btn')
+            sendBtn.style.opacity = '0.5'
+            sendBtn.disabled = true
+
+            emailjs
+                .sendForm('service_01q091f', 'template_7pzwjkj', form)
+                .then(() => {
                     document.querySelector('.contact__status').textContent =
                         'Message sent successfully!'
-                },
-                (error) => {
+                })
+                .catch((error) => {
                     document.querySelector('.contact__status').textContent =
                         'Failed to send message.'
                     console.error('EmailJS error:', error)
-                }
-            )
+                })
+                .finally(() => {
+                    form.reset()
+                    setTimeout(() => {
+                        document.querySelector('.contact__status').textContent =
+                            ''
+                        sendBtn.style.opacity = '1'
+                        sendBtn.disabled = false
+                    }, 2000)
+                })
         })
     }
+
+    document.addEventListener('touchstart', () => {}, true)
 })

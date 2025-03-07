@@ -33,6 +33,7 @@
 @media (max-width: 768px) {
     .header {
         &__inner {
+            justify-content: center;
             align-items: center;
             border: none;
         }
@@ -43,29 +44,27 @@
             left: 0;
             right: 0;
             z-index: 2000;
-            transform: translate(-10px, 0);
+            transform: translateX(10px);
             background: $bg;
             display: flex;
             justify-content: start;
 
             opacity: 0;
-            visibility: hidden;
             pointer-events: none;
             transition: all 0.1s ease;
 
             &.show {
                 opacity: 1;
-                visibility: visible;
                 pointer-events: all;
                 transform: translateX(0);
             }
         }
 
         &__list {
-            gap: 30px;
+            gap: 20px;
 
             &-link {
-                font-size: 22px;
+                font-size: 20px;
             }
         }
 
@@ -196,6 +195,7 @@
     }
 
     .beat-fixed {
+        transform: translateY(112%);
         padding: 20px;
 
         &__progress {
@@ -224,6 +224,14 @@
 
         &__controls {
             transform: translate(-50%, -50%);
+        }
+
+        .beat-fixed__prev,
+        .beat-fixed__play,
+        .beat-fixed__next {
+            &:active {
+                transform: scale(0.7);
+            }
         }
 
         &__next,
