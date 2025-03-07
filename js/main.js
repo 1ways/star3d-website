@@ -865,14 +865,34 @@ window.addEventListener('DOMContentLoaded', () => {
 
     function isInAppBrowser() {
         const userAgent = navigator.userAgent.toLowerCase()
-        return /fbav|instagram|twitter|snapchat|telegram|discord|linkedin|whatsapp/.test(
-            userAgent
-        )
+
+        const inAppKeywords = [
+            'fbav',
+            'instagram',
+            'twitter',
+            'snapchat',
+            'telegram',
+            'discord',
+            'linkedin',
+            'whatsapp',
+            'pinterest',
+            'tiktok',
+        ]
+
+        if (inAppKeywords.some((keyword) => userAgent.includes(keyword))) {
+            return true
+        }
+
+        const isWebView =
+            /(iphone|ipod|ipad).*applewebkit(?!.*safari)/i.test(userAgent) ||
+            /(android(?!.*chrome)|wv)/i.test(userAgent)
+
+        return isWebView
     }
 
     if (isInAppBrowser()) {
         alert(
-            'For the best experience, please open this link in Safari or Chrome.'
+            "You're using an in-app browser. For the best experience, please open this page in Chrome, Safari, or your default browser."
         )
     }
 })
